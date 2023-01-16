@@ -41,7 +41,8 @@ public class TransactionController {
 
     @DeleteMapping("/{id}")
     public Mono<ResponseEntity<Void>> deleteById(@PathVariable String id){
-        return transactionService.deleteById(id).map(trans -> new ResponseEntity<Void>(HttpStatus.OK));
+        return transactionService.findById(id).flatMap(t -> transactionService.deleteById(id).then(Mono.just(new ResponseEntity<Void>(HttpStatus.OK)))).defaultIfEmpty(new ResponseEntity<Void>(HttpStatus.NOT_FOUND));
+        //return transactionService.deleteById(id).map(trans -> new ResponseEntity<Void>(HttpStatus.OK));
     }
 
     @PutMapping("/{id}")
