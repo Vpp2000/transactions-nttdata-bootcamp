@@ -47,6 +47,8 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
 
+
+    // METODO UTILIZADO PARA OBTENER LAS OPERACIONES DE UN PRODUCTO
     @Override
     public Flux<Transaction> getOperationsFromAccount(String productId, String customerId){
         Logger.getLogger("root").info(String.format("productId: %s customerId: %s", productId, customerId));

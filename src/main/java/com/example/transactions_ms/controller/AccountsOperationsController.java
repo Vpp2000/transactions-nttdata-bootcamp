@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
 
+
+// CONTROLADOR USADO PARA LA CONSULTA DE LAS OPERACIONES DE UN PRODUCTO
 @RestController
 @RequiredArgsConstructor
 public class AccountsOperationsController {
