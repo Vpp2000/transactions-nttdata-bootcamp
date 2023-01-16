@@ -3,6 +3,7 @@ package com.example.transactions_ms.service.impl;
 import com.example.transactions_ms.documents.Transaction;
 import com.example.transactions_ms.repository.TransactionRepository;
 import com.example.transactions_ms.service.TransactionService;
+import java.util.logging.Logger;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
@@ -43,4 +44,11 @@ public class TransactionServiceImpl implements TransactionService {
         return transactionRepository.deleteById(id);
     }
 
+
+    @Override
+    public Flux<Transaction> getOperationsFromAccount(String productId, String customerId){
+        Logger.getLogger("root").info(String.format("productId: %s customerId: %s", productId, customerId));
+        Flux<Transaction> transactionsFlux = transactionRepository.findByProductIdAndCustomerId(productId, customerId);
+        return transactionsFlux;
+    }
 }
