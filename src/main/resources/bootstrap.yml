@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: transactions
+  cloud:
+    config:
+      uri: http://localhost:8081
+      username: consumer
+      password: consumer
