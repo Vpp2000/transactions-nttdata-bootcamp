@@ -28,7 +28,7 @@ public class TransactionServiceImpl implements TransactionService {
 
     @Override
     public Mono<Transaction> save(Transaction transaction) {
-        logs_to_file.info(String.format("Saving transaction of customerId {}", transaction.getCustomerId()));
+        logs_to_file.info(String.format("Saving transaction of customerId %s", transaction.getCustomerId()));
         return transactionRepository.save(transaction);
     }
 
