@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: transactions-nttdata-bootcamp
+  cloud:
+    config:
+      enabled: true
+      uri: http://localhost:8888

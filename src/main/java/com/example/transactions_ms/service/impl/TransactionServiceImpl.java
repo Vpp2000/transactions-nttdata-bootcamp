@@ -14,6 +14,7 @@ import reactor.core.publisher.Mono;
 public class TransactionServiceImpl implements TransactionService {
 
     private final TransactionRepository transactionRepository;
+    private static final Logger logs_to_file = Logger.getLogger("debugger_file");
 
     @Override
     public Flux<Transaction> findAll() {
@@ -27,6 +28,7 @@ public class TransactionServiceImpl implements TransactionService {
 
     @Override
     public Mono<Transaction> save(Transaction transaction) {
+        logs_to_file.info(String.format("Saving transaction of customerId {}", transaction.getCustomerId()));
         return transactionRepository.save(transaction);
     }
 
