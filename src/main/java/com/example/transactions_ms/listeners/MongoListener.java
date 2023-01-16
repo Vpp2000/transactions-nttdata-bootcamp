@@ -6,6 +6,8 @@ import org.springframework.data.mongodb.core.mapping.event.AbstractMongoEventLis
 import org.springframework.data.mongodb.core.mapping.event.BeforeConvertEvent;
 import org.springframework.stereotype.Component;
 
+
+// CLASE UTILIZADA PARA INSERTAR FECHA DE CREACION DE REGISTRO EN LA BASE DE DATOS
 @Component
 public class MongoListener extends AbstractMongoEventListener<Transaction> {
     @Override
